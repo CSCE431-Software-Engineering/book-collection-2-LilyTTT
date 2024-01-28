@@ -10,8 +10,8 @@ RSpec.describe "AddNewBooks", type: :system do
     fill_in 'Title', with: 'Hello, World!'
     click_on 'Add Book'
     expect(page).to have_content('Book was successfully added.')
-    post = Book.order("id").last
-    expect(post.title).to eq('Hello, World!')
+    book = Book.order("id").last
+    expect(book.title).to eq('Hello, World!')
   end
 
   it 'adding a book with blank title' do
@@ -19,7 +19,7 @@ RSpec.describe "AddNewBooks", type: :system do
     fill_in 'Title', with: ''
     click_on 'Add Book'
     expect(page).to have_content('Book was successfully added.')
-    post = Book.order("id").last
-    expect(post.title).to eq('')
+    book = Book.order("id").last
+    expect(book.title).to eq('')
   end
 end
