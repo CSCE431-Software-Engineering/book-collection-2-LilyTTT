@@ -1,7 +1,10 @@
 <%# modified %>
 <table summary="Book form fields">
     <tr>
-    <th>Name</th>
-    <td><%= f.text_field(:title) %></td>
+    <th>Title</th>
+    <td>
+        <%= f.label :title%>
+        <%= f.text_field(:title) %>
+    </td>
     </tr>
 </table>

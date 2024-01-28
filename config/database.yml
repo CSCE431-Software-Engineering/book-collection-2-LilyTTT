@@ -27,7 +27,7 @@ default: &default
 
 development:
   <<: *default
-  database: week_1_lab_LilyTTT_development
+  database: book_collection_2_LilyTTT_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -61,7 +61,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: week_1_lab_LilyTTT_test
+  database: book_collection_2_LilyTTT_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -85,6 +85,6 @@ test:
 #
 production:
   <<: *default
-  database: week_1_lab_LilyTTT_production
-  username: week_1_lab_LilyTTT
-  password: <%= ENV["WEEK_1_LAB_LILYTTT_DATABASE_PASSWORD"] %>
+  database: book_collection_2_LilyTTT_production
+  username: book_collection_2_LilyTTT
+  password: <%= ENV["BOOK_COLLECTION_2_LILYTTT_DATABASE_PASSWORD"] %>
