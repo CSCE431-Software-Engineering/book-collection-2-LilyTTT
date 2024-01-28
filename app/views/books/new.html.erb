@@ -1,0 +1,15 @@
+<%= link_to("Back to Homepage", books_path, :class => 'back-link') %>
+
+<div class="books new">
+  <h2>Add Book</h2>
+
+  <%= form_for(@book) do |f| %>
+
+   <%= render(partial: 'form', locals:{f: f})%> 
+
+    <div class="form-buttons">
+      <%= f.submit("Add Book") %>
+    </div>
+
+  <% end %>
+</div>

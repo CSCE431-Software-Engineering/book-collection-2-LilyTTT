@@ -1,0 +1,59 @@
+<div class="books index">
+    <% if flash[:notice].present? %>
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+            <span class="close">&times;</span>
+            <p><%= flash[:notice] %></p>
+            </div>
+        </div>
+        <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+            modal.style.display = "none";
+            };
+
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+            };
+
+            // Display the modal
+            modal.style.display = "block";
+        </script>
+    <% end %>
+
+
+    <h2> My Books </h2>
+
+    <%= link_to("Add New book", new_book_path, class: 'action new')%>
+
+    <table class="listing" summery = "book list" style="width:100%">
+        <tr class="header">
+            <th>Title</th>
+            <th>Author</th>
+            <th>Price</th>
+            <th>Published Date</th>
+        </tr>
+        <% @books.each do |book| %>
+        <tr>
+            <th><%= book.title %></th>
+            <th><%= book.author %></th>
+            <th><%= book.price %></th>
+            <th><%= book.published_date %></th>
+            <td class="action">
+                <%= link_to("Show", book_path(book), class: 'action show')%>
+                <%= link_to("Edit", edit_book_path(book), class: 'action edit')%>
+                <%= link_to("Delete", delete_book_path(book), class: 'action delete')%>
+            </td>
+        </tr>
+        <%end%>
+    </table>
+</div>
